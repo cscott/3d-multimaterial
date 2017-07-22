@@ -11,6 +11,10 @@ function core_extra_diam() = 0.5;
 // plastic mount from filastruder
 function mount_diam() = 12;
 function mount_deep() = 7;
+// interface to gear head extruder
+function handle_diam() = 7.5; // for 8mm drill
+function handle_deep() = 7;
+draft=false;
 $fn = 48;
 
 module block(part="all") {
@@ -24,13 +28,19 @@ module block(part="all") {
     difference() {
       block(part="outside");
       block(part="hole");
+      difference() {
+        cube([cone_diam,cone_diam,2*handle_deep()], center=true);
+        cylinder(d=handle_diam(), h=3*handle_deep(), center=true);
+      }
     }
   } else if (part=="outside") {
     wall=2;
     union() {
       // aids printability by giving flat face on bottom
       translate([0,0,cone_height]) scale([1,1,-1])
-        cylinder(d1=cone_diam, d2=core_diam() + core_extra_diam() + 2*wall,
+        cylinder(d1=cone_diam,
+                 d2=handle_diam()-0.5,
+                 //was: d2=core_diam() + core_extra_diam() + 2*wall,
                  h=cone_height);
       cluster4b(part="core", curve_radius=curve_radius, length=length,
                 extra_diam=mount_diam() - core_diam() + 2*wall,
@@ -54,7 +64,7 @@ module cluster4(angle=25, length=28) {
 
 module cluster4b(part="all", curve_radius=23, length=26, cutoff_length=0, extra_len=0, extra_diam=0) {
   rotate([0,0,45])
-  for(i=[0:3]) rotate([0,0,i*90]) {
+  for(i=[0:(draft?0:3)]) rotate([0,0,i*90]) {
     curved_bowden(part=part, length=length, curve_radius=curve_radius, cutoff_length=cutoff_length, extra_len=extra_len, extra_diam=extra_diam);
   }
 }
