@@ -8,13 +8,17 @@ part = "block"; // [block]
 // PFTE bowden tube
 function tube_diam() = 4;
 function core_diam() = 2;
-function core_extra_diam() = 0.5;
+function tube_extra_diam() = 0.5; // clearance for tube
+function core_extra_diam() = 0.5; // clearance for filament
 // plastic mount from filastruder
 function mount_diam() = 12;
 function mount_deep() = 7;
 // interface to gear head extruder
 function handle_diam() = 7.5; // for 8mm drill
 function handle_deep() = 7;
+
+// amount to enlarge diameter of holes to account for filament spread
+function inner_clearance() = 0.5;
 draft=false;
 $fn = draft ? 12 : 48;
 
@@ -58,9 +62,9 @@ module block(part="all") {
                 extra_diam=2*wall, cutoff_length = block_cutoff - wall);
     }
   } else if (part=="hole") {
-    cluster4b(part="core", curve_radius=curve_radius, length=length, extra_len=1, extra_diam=core_extra_diam());
-    cluster4b(part="hole", curve_radius=curve_radius, length=length, extra_len=extra_len);
-    cluster4b(part="tube", curve_radius=curve_radius, length=length, cutoff_length=block_cutoff);
+    cluster4b(part="core", curve_radius=curve_radius, length=length, extra_len=1, extra_diam=core_extra_diam() + inner_clearance());
+    cluster4b(part="hole", curve_radius=curve_radius, length=length, extra_len=extra_len, extra_diam=inner_clearance());
+    cluster4b(part="tube", curve_radius=curve_radius, length=length, cutoff_length=block_cutoff, extra_diam=tube_extra_diam() + inner_clearance());
   }
 }
 
@@ -113,7 +117,7 @@ module curved_bowden(part="all", length=28, curve_radius=20, cutoff_length=0, ex
   } else if (part=="cap") {
     difference() {
       curved_bowden(part="hole", length=length, curve_radius=curve_radius);
-      curved_bowden(part="tube", length=length, curve_radius=curve_radius, extra_len=epsilon);
+      curved_bowden(part="tube", length=length, curve_radius=curve_radius, extra_len=epsilon, extra_diam=inner_clearance());
     }
   }
 }
