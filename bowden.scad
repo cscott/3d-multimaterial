@@ -1,7 +1,12 @@
-/* Adapter from 4 bowden tubes to input of Printrbot Gear Head Extruder. */
+/* Adapter from 2-4 bowden tubes to input of Printrbot Gear Head Extruder. */
 
 /* [Global] */
+
+// Which part.
 part = "block"; // [block]
+
+// How many inputs
+ntubes = 4; // [2,3,4]
 
 /* [Hidden] */
 
@@ -23,14 +28,18 @@ draft=false;
 $fn = draft ? 12 : 48;
 
 if (part=="block") {
-  //bowden();
-  //cluster4();
-  //curved_bowden();
-  //cluster4b();
   block("all");
+} else if (part=="straight_bowden") {
+  straight_bowden();
+} else if (part=="straight_cluster") {
+  straight_cluster();
+} else if (part=="curved_bowden") {
+  curved_bowden();
+} else if (part=="curved_cluster") {
+  curved_cluster();
 }
 
-module block(part="all") {
+module block(part="all", ntubes=ntubes) {
   block_cutoff = 10.5;
   curve_radius = 20;
   cone_height = 27.4;
@@ -55,30 +64,42 @@ module block(part="all") {
                  d2=handle_diam()-0.5,
                  //was: d2=core_diam() + core_extra_diam() + 2*wall,
                  h=cone_height);
-      cluster4b(part="core", curve_radius=curve_radius, length=length,
+      curved_cluster(part="core", ntubes=ntubes,
+                curve_radius=curve_radius, length=length,
                 extra_diam=mount_diam() - core_diam() + 2*wall,
                 cutoff_length=length - mount_deep() - wall);
-      cluster4b(part="tube", curve_radius=curve_radius, length=length,
+      curved_cluster(part="tube", ntubes=ntubes,
+                curve_radius=curve_radius, length=length,
                 extra_diam=2*wall, cutoff_length = block_cutoff - wall);
     }
   } else if (part=="hole") {
-    cluster4b(part="core", curve_radius=curve_radius, length=length, extra_len=1, extra_diam=core_extra_diam() + inner_clearance());
-    cluster4b(part="hole", curve_radius=curve_radius, length=length, extra_len=extra_len, extra_diam=inner_clearance());
-    cluster4b(part="tube", curve_radius=curve_radius, length=length, cutoff_length=block_cutoff, extra_diam=tube_extra_diam() + inner_clearance());
+    curved_cluster(part="core", ntubes=ntubes,
+                   curve_radius=curve_radius, length=length,
+                   extra_len=1,
+                   extra_diam=core_extra_diam() + inner_clearance());
+    curved_cluster(part="hole", ntubes=ntubes,
+                   curve_radius=curve_radius, length=length,
+                   extra_len=extra_len, extra_diam=inner_clearance());
+    curved_cluster(part="tube", ntubes=ntubes,
+                   curve_radius=curve_radius, length=length,
+                   cutoff_length=block_cutoff,
+                   extra_diam=tube_extra_diam() + inner_clearance());
   }
 }
 
-module cluster4(angle=25, length=28) {
-  rotate([0,0,45])
-  for (xy=[[0,1],[0,-1],[1,0],[-1,0]]) rotate([xy.x*angle, xy.y*angle, 0]) {
-    bowden(length=length);
+module straight_cluster(part="all", ntubes=ntubes, angle=25, length=28) {
+  rotate([0,0,ntubes==4 ? 45: 0])
+  for(i=[1:(draft?1:ntubes)]) rotate([0,0,i*(360/ntubes)]) {
+    rotate([angle, 0, 0]) straight_bowden(part=part, length=length);
   }
 }
 
-module cluster4b(part="all", curve_radius=23, length=26, cutoff_length=0, extra_len=0, extra_diam=0) {
-  rotate([0,0,45])
-  for(i=[0:(draft?0:3)]) rotate([0,0,i*90]) {
-    curved_bowden(part=part, length=length, curve_radius=curve_radius, cutoff_length=cutoff_length, extra_len=extra_len, extra_diam=extra_diam);
+module curved_cluster(part="all", ntubes=ntubes, curve_radius=23, length=26, cutoff_length=0, extra_len=0, extra_diam=0) {
+  rotate([0,0,ntubes==4 ? 45: 0])
+  for(i=[1:(draft?1:ntubes)]) rotate([0,0,i*(360/ntubes)]) {
+    curved_bowden(part=part, length=length, curve_radius=curve_radius,
+                  cutoff_length=cutoff_length,
+                  extra_len=extra_len, extra_diam=extra_diam);
   }
 }
 
@@ -117,32 +138,34 @@ module curved_bowden(part="all", length=28, curve_radius=20, cutoff_length=0, ex
   } else if (part=="cap") {
     difference() {
       curved_bowden(part="hole", length=length, curve_radius=curve_radius);
-      curved_bowden(part="tube", length=length, curve_radius=curve_radius, extra_len=epsilon, extra_diam=inner_clearance());
+      curved_bowden(part="tube", length=length, curve_radius=curve_radius,
+                    extra_len=epsilon, extra_diam=inner_clearance());
     }
   }
 }
 
-module bowden(part="all", length=30, extra_len=0) {
+module straight_bowden(part="all", length=30, cutoff_length=0, extra_len=0, extra_diam=0) {
+  cutoff = (cutoff_length > 0 ? cutoff_length : -extra_len);
   epsilon = .1;
 
   if (part=="all") {
-    bowden(part="tube", length=length);
-    bowden(part="cap", length=length);
-  } else if (part=="tube") {
+    straight_bowden(part="cap", length=length);
     difference() {
-      cylinder(d=tube_diam(), h=length);
-      translate([0,0,-epsilon])
-        cylinder(d=core_diam(), h=length + 2*epsilon);
+      straight_bowden(part="tube", length=length);
+      straight_bowden(part="core", length=length, extra_len=epsilon);
     }
+  } else if (part=="tube" || part=="core") {
+   diam = ((part=="tube") ? tube_diam() : core_diam()) + extra_diam;
+   translate([0,0,cutoff])
+   cylinder(d=diam, h=length + extra_len - cutoff);
   } else if (part=="hole") {
-    cylinder(d=tube_diam(), h=length);
     translate([0,0,length - mount_deep()])
-      cylinder(d=mount_diam(), h=mount_deep() + extra_len);
+      cylinder(d=mount_diam() + extra_diam, h=mount_deep() + extra_len);
   } else if (part=="cap") {
-    translate([0,0,length - mount_deep()]) difference() {
-      cylinder(d=mount_diam(), h=mount_deep());
-      translate([0,0,-epsilon])
-        cylinder(d=tube_diam()+epsilon, h=mount_deep() + 2*epsilon);
+    difference() {
+      straight_bowden(part="hole", length=length);
+      straight_bowden(part="tube", length=length,
+                      extra_len=epsilon, extra_diam=inner_clearance());
     }
   }
 }
