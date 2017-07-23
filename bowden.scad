@@ -1,8 +1,9 @@
-//bowden();
-//cluster4();
-//curved_bowden();
-//cluster4b();
-block("all");
+/* Adapter from 4 bowden tubes to input of Printrbot Gear Head Extruder. */
+
+/* [Global] */
+part = "block"; // [block]
+
+/* [Hidden] */
 
 // PFTE bowden tube
 function tube_diam() = 4;
@@ -15,7 +16,15 @@ function mount_deep() = 7;
 function handle_diam() = 7.5; // for 8mm drill
 function handle_deep() = 7;
 draft=false;
-$fn = 48;
+$fn = draft ? 12 : 48;
+
+if (part=="block") {
+  //bowden();
+  //cluster4();
+  //curved_bowden();
+  //cluster4b();
+  block("all");
+}
 
 module block(part="all") {
   block_cutoff = 10.5;
