@@ -1,0 +1,75 @@
+{
+    "id":"3367036c-9556-4aa5-b3d4-02ff7dc592d1",
+    "title":"Direct-drive multimaterial printing on a Printrbot",
+    "description":"A collection of parts used to implement direct-drive multimaterial printing on a Printrbot Simple Metal.  Should be generalizable to other models.  Printrbot extruders are used, and the <a href='https://github.com/cscott/extrudrboard2'>Extrudrboard2</a>.",
+    "url":"https://github.com/cscott/3d-multimaterial",
+    "downloadUrl":"https://github.com/cscott/3d-multimaterial/zipball/master",
+    "authors":[
+       {
+          "name":"C. Scott Ananian",
+          "url":"https://cscott.net",
+          "email":"things@cscott.net"
+       }
+    ],
+    "created": "2017-07-24T21:59:00-04:00",
+    "licenses":[
+       "GPL3"
+    ],
+    "thumbnailUrls":[
+        "imgs/IMG_20170721_120619.jpg",
+        "imgs/IMG_20170721_120623.jpg",
+        "imgs/IMG_20170723_222441.jpg"
+    ],
+    "subject":[
+       "SUBJECT"
+    ],
+    "media":[
+       "PLA"
+    ],
+    "categories":[
+       "FFM"
+    ],
+    "tags":[
+        "printrbot", "extrudrboard", "extrudrboard2", "bowden"
+    ],
+    "billOfMaterials":[
+       {
+          "partNumber":"1",
+          "description":"OpenSCAD source code",
+          "url":"bowden.scad",
+          "type":"source",
+          "mimetype":"application/x-scad"
+       },
+       {
+          "partNumber":"2",
+          "description":"2-way bowden coupler to extruder handle",
+          "url":"bowden-stl/bowden-block-2.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"3",
+          "description":"3-way bowden coupler to extruder handle",
+          "url":"bowden-stl/bowden-block-3.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"4",
+          "description":"4-way bowden coupler to extruder handle",
+          "url":"bowden-stl/bowden-block-4.stl",
+          "type":"generated",
+          "mimetype":"application/sla",
+          "thumbnailUrl":"imgs/IMG_20170721_120619.jpg"
+       }
+    ],
+    "instructions":[
+       {
+          "step":1,
+          "text":"First, print out all the parts.",
+          "images":[
+             "imgs/IMG_20170721_120619.jpg"
+          ]
+       }
+    ]
+}
