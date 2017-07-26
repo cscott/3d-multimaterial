@@ -18,7 +18,11 @@
     "thumbnailUrls":[
         "imgs/IMG_20170721_120619.jpg",
         "imgs/IMG_20170721_120623.jpg",
-        "imgs/IMG_20170723_222441.jpg"
+        "imgs/IMG_20170723_222441.jpg",
+        "thumbnails/bowden.png",
+        "thumbnails/gearhead-remix.png",
+        "thumbnails/mount.png",
+        "thumbnails/spool-remix.png"
     ],
     "subject":[
        "SUBJECT"
@@ -38,7 +42,8 @@
           "description":"Bowden Couplers (OpenSCAD source)",
           "url":"bowden.scad",
           "type":"source",
-          "mimetype":"application/x-scad"
+          "mimetype":"application/x-scad",
+          "thumbnailUrl":"thumbnails/bowden.png"
        },
        {
           "partNumber":"1a",
@@ -67,7 +72,8 @@
           "description":"Extruder mount (OpenSCAD source)",
           "url":"mount.scad",
           "type":"source",
-          "mimetype":"application/x-scad"
+          "mimetype":"application/x-scad",
+          "thumbnailUrl":"thumbnails/mount.png"
        },
        {
           "partNumber":"2a",
@@ -88,12 +94,42 @@
           "description":"SPANNERHANDS spool LID 2 remix (OpenSCAD source)",
           "url":"spool-remix.scad",
           "type":"source",
-          "mimetype":"application/x-scad"
+          "mimetype":"application/x-scad",
+          "thumbnailUrl":"thumbnails/spool-remix.png"
        },
        {
           "partNumber":"3a",
           "description":"SPANNERHANDS spool LID 2 remix",
           "url":"spool-remix-stl/spool-remix-lid2.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"4",
+          "description":"Gear head extruder remix (OpenSCAD source)",
+          "url":"gearhead-remix.scad",
+          "type":"source",
+          "mimetype":"application/x-scad",
+          "thumbnailUrl":"thumbnails/gearhead-remix.png"
+       },
+       {
+          "partNumber":"4a",
+          "description":"Gear head extruder remix, Base",
+          "url":"gearhead-remix-stl/gearhead-remix-base.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"4b",
+          "description":"Gear head extruder remix, Clamp",
+          "url":"gearhead-remix-stl/gearhead-remix-clamp.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"4c",
+          "description":"Gear head extruder remix, Gearbox",
+          "url":"gearhead-remix-stl/gearhead-remix-gearbox.stl",
           "type":"generated",
           "mimetype":"application/sla"
        }
