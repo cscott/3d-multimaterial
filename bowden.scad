@@ -40,12 +40,23 @@ if (part=="block") {
 }
 
 module block(part="all", ntubes=ntubes) {
+  // less sharp, fits on gearhead extruder v0.02 better
+  curve_radius = 50;
+  length = 36;
+  block_cutoff = 18.5;
+  cone_height = 37.8;
+  cone_diam = 16;
+  extra_len = 10;
+  /*
+  // most compact:
   block_cutoff = 10.5;
   curve_radius = 20;
   cone_height = 27.4;
   cone_diam = 20;
   length = 26;
   extra_len = 10;
+  */
+
   if (part=="all") {
     difference() {
       block(part="outside");
@@ -94,7 +105,7 @@ module straight_cluster(part="all", ntubes=ntubes, angle=25, length=28) {
   }
 }
 
-module curved_cluster(part="all", ntubes=ntubes, curve_radius=23, length=26, cutoff_length=0, extra_len=0, extra_diam=0) {
+module curved_cluster(part="all", ntubes=ntubes, curve_radius=50, length=36, cutoff_length=0, extra_len=0, extra_diam=0) {
   rotate([0,0,ntubes==4 ? 45: 0])
   for(i=[1:(draft?1:ntubes)]) rotate([0,0,i*(360/ntubes)]) {
     curved_bowden(part=part, length=length, curve_radius=curve_radius,
