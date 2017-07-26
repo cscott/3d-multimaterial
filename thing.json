@@ -82,6 +82,20 @@
           "url":"mount-stl/mount-750g.stl",
           "type":"generated",
           "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"3",
+          "description":"SPANNERHANDS spool LID 2 remix (OpenSCAD source)",
+          "url":"spool-remix.scad",
+          "type":"source",
+          "mimetype":"application/x-scad"
+       },
+       {
+          "partNumber":"3a",
+          "description":"SPANNERHANDS spool LID 2 remix",
+          "url":"spool-remix-stl/spool-remix-lid2.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
        }
     ],
     "instructions":[
