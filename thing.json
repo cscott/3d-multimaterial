@@ -35,32 +35,53 @@
     "billOfMaterials":[
        {
           "partNumber":"1",
-          "description":"OpenSCAD source code",
+          "description":"Bowden Couplers (OpenSCAD source)",
           "url":"bowden.scad",
           "type":"source",
           "mimetype":"application/x-scad"
        },
        {
-          "partNumber":"2",
+          "partNumber":"1a",
           "description":"2-way bowden coupler to extruder handle",
           "url":"bowden-stl/bowden-block-2.stl",
           "type":"generated",
           "mimetype":"application/sla"
        },
        {
-          "partNumber":"3",
+          "partNumber":"1b",
           "description":"3-way bowden coupler to extruder handle",
           "url":"bowden-stl/bowden-block-3.stl",
           "type":"generated",
           "mimetype":"application/sla"
        },
        {
-          "partNumber":"4",
+          "partNumber":"1c",
           "description":"4-way bowden coupler to extruder handle",
           "url":"bowden-stl/bowden-block-4.stl",
           "type":"generated",
           "mimetype":"application/sla",
           "thumbnailUrl":"imgs/IMG_20170721_120619.jpg"
+       },
+       {
+          "partNumber":"2",
+          "description":"Extruder mount (OpenSCAD source)",
+          "url":"mount.scad",
+          "type":"source",
+          "mimetype":"application/x-scad"
+       },
+       {
+          "partNumber":"2a",
+          "description":"Extruder mount on SPANNERHANDS spool (1kg)",
+          "url":"mount-stl/mount-1kg.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"2b",
+          "description":"Extruder mount on SPANNERHANDS spool (750g)",
+          "url":"mount-stl/mount-750g.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
        }
     ],
     "instructions":[

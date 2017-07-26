@@ -26,11 +26,12 @@ function m3_clear() = 3.4;
 function inner_clearance() = 0.5;
 
 module mount() {
+  spannerhands_spacing = 33;
   hotend_height = 21; // hotend spacing above top of A
   hotend_diam = 16 + 0.5/*clearance*/;
   hotend_setback_width = 12;
   hotend_to_wall_width = 22 - 11;
-  stepper_shaft_diam = 5 + 2/*clearance*/;
+  stepper_shaft_diam = 5 + 8/*clearance for hobbed wheel*/;
   stepper_ring_diam = 22;
   stepper_ring_depth = 2;
   nema17_mount = 31;
@@ -54,7 +55,7 @@ module mount() {
     translate([-a_width/2, -(a_depth - 24), 0])
       cube([a_width, a_depth, a_height]);
     for (i=[-1,1]) for (j=[-1,1]) scale([i,j,1])
-      translate([16,16,0])
+      translate([spannerhands_spacing/2,spannerhands_spacing/2,0])
         m3_hole();
   }
   // part b
