@@ -16,8 +16,8 @@
        "GPL3"
     ],
     "thumbnailUrls":[
-        "imgs/IMG_20170721_120619.jpg",
-        "imgs/IMG_20170721_120623.jpg",
+        "imgs/IMG_20170726_134009.jpg",
+        "imgs/IMG_20170724_211042.jpg",
         "imgs/IMG_20170723_222441.jpg",
         "thumbnails/bowden.png",
         "thumbnails/gearhead-remix.png",
@@ -64,8 +64,7 @@
           "description":"4-way bowden coupler to extruder handle",
           "url":"bowden-stl/bowden-block-4.stl",
           "type":"generated",
-          "mimetype":"application/sla",
-          "thumbnailUrl":"imgs/IMG_20170721_120619.jpg"
+          "mimetype":"application/sla"
        },
        {
           "partNumber":"2",
@@ -137,10 +136,36 @@
     "instructions":[
        {
           "step":1,
-          "text":"First, print out all the parts.",
+          "text":"Start by printing out a SPANNERHANDS spool for each bowden extruder you are going to use.  Use spool-remix-lid2.stl instead of the LID2 part. Attach the PTFE_COUPLER_v2_0.stl to spool-remix-lid2, and screw mount-1kg.stl to LID1 (where the PTFE_COUPLER part would normally go).  Attach your stepper and extruder to mount-1kg.",
           "images":[
-             "imgs/IMG_20170721_120619.jpg"
+             "imgs/IMG_20170726_134009.jpg",
+             "imgs/IMG_20170724_211042.jpg"
           ]
+       },
+       {
+          "step":2,
+          "text":"Print out our remixed version of the Printrbot gear head extruder, in three parts: base, clamp, and gearbox."
+       },
+       {
+          "step":3,
+          "text":"Print out the 2-way, 3-way, or 4-way bowden merge, and attach it to the top of the remixed gear head extruder."
        }
+    ],
+    "relationships": [
+        {
+            "type": "reference",
+            "url": "https://github.com/cscott/extrudrboard2",
+            "title": "Extrudrboard2"
+        },
+        {
+            "type": "reference",
+            "url": "https://www.thingiverse.com/thing:2119644",
+            "title": "SPANNERHANDS spool system"
+        },
+        {
+            "type": "reference",
+            "url": "https://www.youmagine.com/designs/printrbot-gear-head-extruder",
+            "title": "Printrbot gear head extruder"
+        }
     ]
 }
