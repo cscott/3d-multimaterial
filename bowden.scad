@@ -43,7 +43,7 @@ module block(part="all", ntubes=ntubes) {
   // less sharp, fits on gearhead extruder v0.02 better
   curve_radius = 50;
   length = 36;
-  block_cutoff = 18.5;
+  block_cutoff = 19;
   cone_height = 37.8;
   cone_diam = 16;
   extra_len = 10;
