@@ -6,15 +6,18 @@
 
 /* [Global] */
 
-part = "lid2"; // [lid2]
+part = "hanger"; // [lid2,hanger]
 
 /* [Hidden] */
 
 use <./mount.scad>
 $fn=48;
 
-//lid2();
-remixed_lid(part=part);
+if (part=="lid1" || part=="lid2") {
+  remixed_lid(part=part);
+} else if (part=="hanger") {
+  remixed_hanger();
+}
 
 module lid1() {
   translate([-120,0,-97])
@@ -41,5 +44,19 @@ module remixed_lid(part="lid2") {
           m3_hole();
       }
     }
+  }
+}
+
+module hanger() {
+  translate([0,0,15]) rotate([0,90,0])
+    import("remix/WALL_MOUNT_v2_0.stl", convexity=10);
+}
+
+module remixed_hanger() {
+  // notch for stepper wire to pass through
+  difference() {
+    hanger();
+    translate([-6,0,26])
+      cube([12,60,4.5]);
   }
 }
