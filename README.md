@@ -40,7 +40,7 @@ by simply drilling an 8mm pocket in the handle, although I don't
 own one of the newer Aluminum Gear Head Extruders to fully test this.
 
 The bowden tubes from the merge piece run to individual bowden drives
-mounted on filament spools.  I'm using SPANNERHANDS excellent
+mounted on filament spools.  I'm using SPANNERHANDS' excellent
 [spool design](https://www.thingiverse.com/thing:2119644) with a
 slight remix to move the PFTE coupler and mount an extruder where
 the PFTE coupler used to attach.  The extruders connect to an
@@ -181,7 +181,7 @@ coil to kink and coil into the gap, eventually pushing your hot end off in
 the middle of a print.  (This is the voice of experience speaking.)
 
 <br clear="both" />
-<img src="./imgs/IMG_20170731_013846.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170731_105441.jpg" style="float:right" width=150 align="right"/>
 
 Install the `clamp` piece using two M3x25mm screws into the stepper.
 There is a ridge on the clamp piece that should fit into the ring at

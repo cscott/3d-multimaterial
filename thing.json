@@ -24,9 +24,6 @@
         "thumbnails/mount.png",
         "thumbnails/spool-remix.png"
     ],
-    "subject":[
-       "SUBJECT"
-    ],
     "media":[
        "PLA"
     ],
@@ -100,6 +97,13 @@
           "partNumber":"3a",
           "description":"SPANNERHANDS spool LID 2 remix",
           "url":"spool-remix-stl/spool-remix-lid2.stl",
+          "type":"generated",
+          "mimetype":"application/sla"
+       },
+       {
+          "partNumber":"3b",
+          "description":"SPANNERHANDS spool WALL_MOUNT_v2_0 remix",
+          "url":"spool-remix-stl/spool-remix-hanger.stl",
           "type":"generated",
           "mimetype":"application/sla"
        },
