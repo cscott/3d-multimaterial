@@ -169,15 +169,27 @@ in order to check that the gears turn smoothly without slipping or grinding.
 <br clear="both" />
 <img src="./imgs/IMG_20170728_145756.jpg" style="float:right" width=150 align="right"/>
 
-Now attach the extruder to the Y-axis of your printer using (3) M3x10mm
-screws through the bottom mounting holes into (3) M3 nuts in the slots
-provides.  (I'm using M3x12mm screws because I have an extra 3mm aluminum
+Now attach the extruder to the Y-axis of your printer using (2) M3x10mm
+screws through the bottom mounting holes into (2) M3 nuts in the slots
+provided.  (I'm using M3x12mm screws because I have an extra 3mm aluminum
 plate mounted to my Y-axis, to support a previous dual-extruder
 experiment <a href="https://www.thingiverse.com/thing:398212">similar
 to this one</a>.)
 
-You can test everything out by feeding filament through the hole in
-the top of the remixed gear head extruder to make sure everything
+Insert your hot end, and ensure it is snug and flush to the bottom surface
+fof the extruder as shown in the picture.  Any gap here will allow flexible
+coil to kink and coil into the gap, eventually pushing your hot end off in
+the middle of a print.  (This is the voice of experience speaking.)
+
+Install the `clamp` piece using two M3 screws into the stepper. (Sorry,
+I didn't write down exactly how long they were; probably around 20mm.)
+There is a ridge on the clamp piece that should fit into the ring at
+the top of your hot end and keep it from slipping downward.  The `clamp`
+is secured to the Y-axis using another M3x10mm screw and M3 nut into its
+bottom.
+
+You can do a test print, feeding filament through the hole in
+the top of the remixed gear head extruder, to make sure everything
 is working correctly to this point.  Be sure to use `M92 E127` to
 reset your extruder steps/mm if you weren't previously using a
 gear head extruder.
