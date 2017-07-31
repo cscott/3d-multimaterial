@@ -9,7 +9,9 @@ This repository contains a collection of parts used to implement
 direct-drive multimaterial printing on a [Printrbot] Simple Metal.
 It should be generalizable to other Printrbot models, and other
 3d printers, but we generally use Printrbot extruder designs
-and [Marlin]'s [Printrboard]/[Extrudrboard] support.
+and [Marlin]'s [Printrboard]/[Extrudrboard] support.  The basic
+direct-drive multimaterial concept is due to [Brian Roe](http://roemotion.com)
+([@MakerBrian](https://twitter.com/MakerBrian)).
 
 The direct-drive design uses the standard extruder directly above the
 hot end for precise no-lag filament control and compatibility with
@@ -65,11 +67,10 @@ building on the `MK2_MULTIPLEXER` support upstreamed to support Prusa's
 Start by printing out a [SPANNERHANDS spool] for each filament bowden
 extruder you are going to use. I'm using the "v5 1kg" variant, but
 with a little effort you could adapt these instructions to one of the
-other spool variants.  Use
-[`spool-remix-lid2.stl`](./spool-remix-stl/spool-remix-lid2.stl)
-instead of the stock LID2 part.  This just adds a new mounting location
-for the SPANNERHANDS PTFE coupler, since we're going to mount our
-bowden extruder on the LID1 part.
+other spool variants.  Use [`spool-remix-lid2.stl`] instead of the
+stock LID2 part.  This just adds a new mounting location for the
+SPANNERHANDS PTFE coupler, since we're going to mount our bowden
+extruder on the LID1 part.
 
 <br clear="both" />
 
@@ -77,14 +78,13 @@ bowden extruder on the LID1 part.
 
 <img src="./imgs/IMG_20170728_133944.jpg" style="float:right" width=150 align="right"/>
 
-Now print out
-[`mount-1kg.stl`](./mount-stl/mount-1kg.stl) and attach it to
-the LID1 part of the spool, with four M3-10mm screws like all of the
-other SPANNERHANDS spool parts.  After it is attached to the spool
-you can mount the extruder, placing the mount between the extruder
-body and the stepper.  I recommend M3-25mm screws here; some models
-of Printrbot extruder might need some extra length to account for
-the mounting plate between the extruder and stepper.
+Now print out [`mount-1kg.stl`] and attach it to the LID1 part of the
+spool, with four M3-10mm screws like all of the other SPANNERHANDS
+spool parts.  After it is attached to the spool you can mount the
+extruder, placing the mount between the extruder body and the stepper.
+I recommend M3-25mm screws here; some models of Printrbot extruder
+might need some extra length to account for the mounting plate between
+the extruder and stepper.
 
 You can optionally use three M3-8mm screws to secure the bottom of
 the extruder.  Some models of Printrbot extruder (for example, the
@@ -95,17 +95,17 @@ They are probably overkill for this use anyway.
 <img src="./imgs/IMG_20170724_211042.jpg" style="float:right" width=150 align="right"/>
 
 Insert a
-[Bowden coupler](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types)
+[Groove mount 1.75mm Bowden coupler](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types)
 where the hotend would usually mount on the extruder.
 
 <br clear="both" />
 <img src="./imgs/IMG_20170726_134052.jpg" style="float:right" width=150 align="right"/>
 
-You can route the wires for the stepper down the back
-of the spool and through the hinge.  You'll probably need a
-<a href="http://www.ebay.com/itm/2-3-foot-XH2-54-Long-Stepper-Motor-Extension-Cables-for-3D-Printers-5-Pieces/272523242942">servo extension</a>
-to reach your Extrudrboard/Extrudrboard2 from wherever you decide to
-mount your spools.
+You can route the wires for the stepper down the back of the spool and
+through the hinge.  You'll probably need [servo extension cables] to
+reach your Extrudrboard/Extrudrboard2 from wherever you decide to
+mount your spools.  You can use [`spool-remix-hanger.stl`] to mount
+the spool to the wall while leaving room for the stepper motor cable.
 
 <br clear="both" />
 
@@ -113,20 +113,15 @@ mount your spools.
 
 <img src="./imgs/IMG_20170728_133905.jpg" style="float:right" width=150 align="right"/>
 
-Print out
-[`gearhead-remix-base.stl`](./gearhead-remix-stl/gearhead-remix-base.stl),
-[`gearhead-remix-clamp.stl`](./gearhead-remix-stl/gearhead-remix-clamp.stl),
-and
-[`gearhead-remix-gearbox.stl`](./gearhead-remix-stl/gearhead-remix-gearbox.stl).
-(The photo also shows an early version of
-[`bowden-block-4.stl`](./bowden-stl/bowden-block-4.stl), the bowden merge
-piece.)
+Print out [`gearhead-remix-base.stl`], [`gearhead-remix-clamp.stl`],
+and [`gearhead-remix-gearbox.stl`]. (The photo also shows an early
+version of [`bowden-block-4.stl`], the bowden merge piece.)
 
 <br clear="both" />
 <img src="./imgs/IMG_20170728_134043.jpg" style="float:right" width=150 align="right"/>
 
-You'll also need (3) or (4)
-<a href="https://amazon.com/gp/product/B00ZHST8NU/">5x8x2.5 mm ball bearings</a>.
+You'll also need (4) [5x8x2.5 mm ball bearings] (or just three; see
+note 2 below).
 
 <br clear="both" />
 <img src="./imgs/IMG_20170728_141320.jpg" style="float:right" width=150 align="right"/>
@@ -135,8 +130,7 @@ First, install a pair of bearings into the `base` piece, and then install
 the Printrbot Gear Head Extruder Gear Set into the bearings.
 
 **NOTE 1:**
-Printrbot
-<a href="https://printrbot.com/shop/gear-head-extruder-gear-set/">sells these</a>,
+Printrbot [sells these](https://printrbot.com/shop/gear-head-extruder-gear-set/),
 but the pair that I have came from the Beta program for the Gear Head Extruder.
 It's possible the production gear set differs from the beta gears.
 
@@ -173,8 +167,7 @@ Now attach the extruder to the Y-axis of your printer using (2) M3x10mm
 screws through the bottom mounting holes into (2) M3 nuts in the slots
 provided.  (I'm using M3x12mm screws because I have an extra 3mm aluminum
 plate mounted to my Y-axis, to support a previous dual-extruder
-experiment <a href="https://www.thingiverse.com/thing:398212">similar
-to this one</a>.)
+experiment [similar to this one](https://www.thingiverse.com/thing:398212).)
 
 Insert your hot end, and ensure it is snug and flush to the bottom surface
 fof the extruder as shown in the picture.  Any gap here will allow flexible
@@ -200,10 +193,8 @@ gear head extruder.
 
 <img src="./imgs/IMG_20170730_191243.jpg" style="float:right" width=150 align="right"/>
 
-Print out
-[`bowden-block-4.stl`](./bowden-stl/bowden-block-4.stl) and install
-(4) <a href="https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types">Filastruder/E3D "Embedded for plastic"
-Bowden Couplers</a>.
+Print out [`bowden-block-4.stl`] and install (4)
+[Filastruder/E3D "Embedded for plastic" 1.75mm Bowden Couplers](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types).
 
 To be continued...
 
@@ -232,4 +223,13 @@ These designs are licensed under the [GPLv2+].
 [Marlin]: http://www.marlinfw.org/
 [Gear Head Extruder]: https://printrbot.com/shop/gear-head-extruder-v2/
 [SPANNERHANDS spool]: https://www.thingiverse.com/thing:2119644
+[servo extension cables]: http://www.ebay.com/itm/2-3-foot-XH2-54-Long-Stepper-Motor-Extension-Cables-for-3D-Printers-5-Pieces/272523242942
+[5x8x2.5mm ball bearings]: https://amazon.com/gp/product/B00ZHST8NU/
+[`spool-remix-lid2.stl`]: ./spool-remix-stl/spool-remix-lid2.stl
+[`spool-remix-hanger.stl`]: ./spool-remix-stl/spool-remix-hanger.stl
+[`mount-1kg.stl`]: ./mount-stl/mount-1kg.stl
+[`gearhead-remix-base.stl`]: ./gearhead-remix-stl/gearhead-remix-base.stl
+[`gearhead-remix-clamp.stl`]: ./gearhead-remix-stl/gearhead-remix-clamp.stl
+[`gearhead-remix-gearbox.stl`]: ./gearhead-remix-stl/gearhead-remix-gearbox.stl
+[`bowden-block-4.stl`]: ./bowden-stl/bowden-block-4.stl
 [GPLv2+]: https://spdx.org/licenses/GPL-2.0+.html
