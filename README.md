@@ -75,7 +75,7 @@ bowden extruder on the LID1 part.
 
 ### Step 2: Mount bowden extruders
 
-<img src="./imgs/IMG_20170724_211042.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_133944.jpg" style="float:right" width=150 align="right"/>
 
 Now print out
 [`mount-1kg.stl`](./mount-stl/mount-1kg.stl) and attach it to
@@ -85,22 +85,118 @@ you can mount the extruder, placing the mount between the extruder
 body and the stepper.  I recommend M3-25mm screws here; some models
 of Printrbot extruder might need some extra length to account for
 the mounting plate between the extruder and stepper.
-You can route the wires for the stepper down the back
-of the spool and through the hinge.
 
 You can optionally use three M3-8mm screws to secure the bottom of
 the extruder.  Some models of Printrbot extruder (for example, the
 injection-molded plastic extruder) don't have these mounting holes.
 They are probably overkill for this use anyway.
 
+<br clear="both" />
+<img src="./imgs/IMG_20170724_211042.jpg" style="float:right" width=150 align="right"/>
+
 Insert a
 [Bowden coupler](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types)
 where the hotend would usually mount on the extruder.
 
 <br clear="both" />
+<img src="./imgs/IMG_20170726_134052.jpg" style="float:right" width=150 align="right"/>
+
+You can route the wires for the stepper down the back
+of the spool and through the hinge.  You'll probably need a
+<a href="http://www.ebay.com/itm/2-3-foot-XH2-54-Long-Stepper-Motor-Extension-Cables-for-3D-Printers-5-Pieces/272523242942">servo extension</a>
+to reach your Extrudrboard/Extrudrboard2 from wherever you decide to
+mount your spools.
+
+<br clear="both" />
 
 ### Step 3: Assemble gear head direct-drive extruder
+
+<img src="./imgs/IMG_20170728_133905.jpg" style="float:right" width=150 align="right"/>
+
+Print out
+[`gearhead-remix-base.stl`](./gearhead-remix-stl/gearhead-remix-base.stl),
+[`gearhead-remix-clamp.stl`](./gearhead-remix-stl/gearhead-remix-clamp.stl),
+and
+[`gearhead-remix-gearbox.stl`](./gearhead-remix-stl/gearhead-remix-gearbox.stl).
+(The photo also shows an early version of
+[`bowden-block-4.stl`](./bowden-stl/bowden-block-4.stl), the bowden merge
+piece.)
+
+<br clear="both" />
+<img src="./imgs/IMG_20170728_134043.jpg" style="float:right" width=150 align="right"/>
+
+You'll also need (3) or (4)
+<a href="https://amazon.com/gp/product/B00ZHST8NU/">5x8x2.5 mm ball bearings</a>.
+
+<br clear="both" />
+<img src="./imgs/IMG_20170728_141320.jpg" style="float:right" width=150 align="right"/>
+
+First, install a pair of bearings into the `base` piece, and then install
+the Printrbot Gear Head Extruder Gear Set into the bearings.
+
+**NOTE 1:**
+Printrbot
+<a href="https://printrbot.com/shop/gear-head-extruder-gear-set/">sells these</a>,
+but the pair that I have came from the Beta program for the Gear Head Extruder.
+It's possible the production gear set differs from the beta gears.
+
+**NOTE 2:**
+Printrbot's original instructions stated that the rear stepper motor
+bearing (the bearing behind the hollow gear you just installed) is
+optional.  But if you're buying bearings, no reason to pinch pennies.
+
+<br clear="both" />
+<img src="./imgs/IMG_20170728_141721.jpg" style="float:right" width=150 align="right"/>
+
+Now install the other pair of bearings into the `gearbox` piece, and
+bolt it to the base using (2) M3x20mm screws and (2) M3 nuts, sandwiching
+the gears between them.  Before closing things up, align the set screw in
+the left-hand gear with the channel in the base; this will allow you to
+insert an allen wrench to tighten this gear onto the stepper shaft.
+
+<br clear="both" />
+<img src="./imgs/IMG_20170728_143040.jpg" style="float:right" width=150 align="right"/>
+
+Attach the assembled gear box to the stepper.  Ensure the flat on the stepper
+shaft is aligned with the allen wrench channel.  Use (2) M3x10mm screws in
+the top holes to attach the gear box to the stepper, and then tighten the
+set screw to secure the drive gear to the stepper shaft.
+
+You probably want to use `M302 P1` to allow cold extrudes, then hook up
+your stepper at this point and do a test extrusion w/o filament or hot end
+in order to check that the gears turn smoothly without slipping or grinding.
+
+<br clear="both" />
+<img src="./imgs/IMG_20170728_145756.jpg" style="float:right" width=150 align="right"/>
+
+Now attach the extruder to the Y-axis of your printer using (3) M3x10mm
+screws through the bottom mounting holes into (3) M3 nuts in the slots
+provides.  (I'm using M3x12mm screws because I have an extra 3mm aluminum
+plate mounted to my Y-axis, to support a previous dual-extruder
+experiment <a href="https://www.thingiverse.com/thing:398212">similar
+to this one</a>.)
+
+You can test everything out by feeding filament through the hole in
+the top of the remixed gear head extruder to make sure everything
+is working correctly to this point.  Be sure to use `M92 E127` to
+reset your extruder steps/mm if you weren't previously using a
+gear head extruder.
+
+<br clear="both" />
+
 ### Step 4: Install bowden merge piece
+
+<img src="./imgs/IMG_20170730_191243.jpg" style="float:right" width=150 align="right"/>
+
+Print out
+[`bowden-block-4.stl`](./bowden-stl/bowden-block-4.stl) and install
+(4) <a href="https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types">Filastruder/E3D "Embedded for plastic"
+Bowden Couplers</a>.
+
+To be continued...
+
+<br clear="both" />
+
 ### Step 5: Wire up the bowden extruder steppers
 ### Step 6: Update Printrboard firmware
 ### Step 7: Test 'er out!
