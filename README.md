@@ -68,9 +68,15 @@ Start by printing out a [SPANNERHANDS spool] for each filament bowden
 extruder you are going to use. I'm using the "v5 1kg" variant, but
 with a little effort you could adapt these instructions to one of the
 other spool variants.  Use [`spool-remix-lid2.stl`] instead of the
-stock LID2 part.  This just adds a new mounting location for the
-SPANNERHANDS PTFE coupler, since we're going to mount our bowden
-extruder on the LID1 part.
+stock `LID2` part.  Mount the SPANNERHANDS `PTFE_COUPLER_v2_0.stl`
+part to [`spool-remix-lid2.stl`].  We are going to mount our
+bowden extruder on `LID1`, where the `PTFE_COUPLER` part would
+normally go.  Assemble the `LID_Bracket`, `BASE_Bracket`,
+and two `CLASP_BRACKET_v2_0` parts; I printed these in a contrasting
+color.  Use two `Glue_Joint` parts to assemble the lid and base halves.
+I found the stock spool bearing mounts a little too tight, so I printed
+the 50mm spool at 102% to fit my 52mm-core diameter spools with the right
+fit for the bearings.
 
 <br clear="both" />
 
@@ -194,7 +200,8 @@ gear head extruder.
 <img src="./imgs/IMG_20170730_191243.jpg" style="float:right" width=150 align="right"/>
 
 Print out [`bowden-block-4.stl`] and install (4)
-[Filastruder/E3D "Embedded for plastic" 1.75mm Bowden Couplers](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types).
+[Filastruder/E3D "Embedded for plastic" 1.75mm Bowden Couplers](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types).  (You could also use the 2-way or 3-way merge piece if
+you prefer.)
 
 To be continued...
 
