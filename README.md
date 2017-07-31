@@ -85,14 +85,14 @@ fit for the bearings.
 <img src="./imgs/IMG_20170728_133944.jpg" style="float:right" width=150 align="right"/>
 
 Now print out [`mount-1kg.stl`] and attach it to the LID1 part of the
-spool, with four M3-10mm screws like all of the other SPANNERHANDS
+spool, with four M3x10mm screws like all of the other SPANNERHANDS
 spool parts.  After it is attached to the spool you can mount the
 extruder, placing the mount between the extruder body and the stepper.
-I recommend M3-25mm screws here; some models of Printrbot extruder
+I recommend M3x25mm screws here; some models of Printrbot extruder
 might need some extra length to account for the mounting plate between
 the extruder and stepper.
 
-You can optionally use three M3-8mm screws to secure the bottom of
+You can optionally use three M3x8mm screws to secure the bottom of
 the extruder.  Some models of Printrbot extruder (for example, the
 injection-molded plastic extruder) don't have these mounting holes.
 They are probably overkill for this use anyway.
@@ -180,8 +180,10 @@ fof the extruder as shown in the picture.  Any gap here will allow flexible
 coil to kink and coil into the gap, eventually pushing your hot end off in
 the middle of a print.  (This is the voice of experience speaking.)
 
-Install the `clamp` piece using two M3 screws into the stepper. (Sorry,
-I didn't write down exactly how long they were; probably around 20mm.)
+<br clear="both" />
+<img src="./imgs/IMG_20170731_013846.jpg" style="float:right" width=150 align="right"/>
+
+Install the `clamp` piece using two M3x25mm screws into the stepper.
 There is a ridge on the clamp piece that should fit into the ring at
 the top of your hot end and keep it from slipping downward.  The `clamp`
 is secured to the Y-axis using another M3x10mm screw and M3 nut into its
