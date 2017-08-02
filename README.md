@@ -31,7 +31,7 @@ extruder to place the merge as close to the extruder input as
 possible.  This minimizes the distance that unsupported filament must
 travel during filament changes, and thus (hopefully) prevents jams.
 
-<img src="./imgs/IMG_20170723_222441.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170723_222441.jpg" width=150 align="right"/>
 
 At the moment I've designed the merge as a single printed piece which
 fits into an 8mm hole on direct-drive extruder handle or body.  The
@@ -62,7 +62,7 @@ building on the `MK2_MULTIPLEXER` support upstreamed to support Prusa's
 
 ### Step 1: Build spools
 
-<img src="./imgs/IMG_20170726_134009.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170726_134009.jpg" width=150 align="right"/>
 
 Start by printing out a [SPANNERHANDS spool] for each filament bowden
 extruder you are going to use. I'm using the "v5 1kg" variant, but
@@ -76,13 +76,15 @@ and two `CLASP_BRACKET_v2_0` parts; I printed these in a contrasting
 color.  Use two `Glue_Joint` parts to assemble the lid and base halves.
 I found the stock spool bearing mounts a little too tight, so I printed
 the 50mm spool at 102% to fit my 52mm-core diameter spools with the right
-fit for the bearings.
+fit for the bearings.  I use the remix at
+[thing:2372633](https://www.thingiverse.com/thing:2372633) to fit my
+32mm core diameter spools; I didn't need to scale that in any way.
 
 <br clear="both" />
 
 ### Step 2: Mount bowden extruders
 
-<img src="./imgs/IMG_20170728_133944.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_133944.jpg" width=150 align="right"/>
 
 Now print out [`mount-1kg.stl`] and attach it to the LID1 part of the
 spool, with four M3x10mm screws like all of the other SPANNERHANDS
@@ -98,14 +100,14 @@ injection-molded plastic extruder) don't have these mounting holes.
 They are probably overkill for this use anyway.
 
 <br clear="both" />
-<img src="./imgs/IMG_20170724_211042.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170724_211042.jpg" width=150 align="right"/>
 
 Insert a
 [Groove mount 1.75mm Bowden coupler](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types)
 where the hotend would usually mount on the extruder.
 
 <br clear="both" />
-<img src="./imgs/IMG_20170726_134052.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170726_134052.jpg" width=150 align="right"/>
 
 You can route the wires for the stepper down the back of the spool and
 through the hinge.  You'll probably need [servo extension cables] to
@@ -117,20 +119,20 @@ the spool to the wall while leaving room for the stepper motor cable.
 
 ### Step 3: Assemble gear head direct-drive extruder
 
-<img src="./imgs/IMG_20170728_133905.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_133905.jpg" width=150 align="right"/>
 
 Print out [`gearhead-remix-base.stl`], [`gearhead-remix-clamp.stl`],
 and [`gearhead-remix-gearbox.stl`]. (The photo also shows an early
 version of [`bowden-block-4.stl`], the bowden merge piece.)
 
 <br clear="both" />
-<img src="./imgs/IMG_20170728_134043.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_134043.jpg" width=150 align="right"/>
 
 You'll also need (4) [5x8x2.5 mm ball bearings] (or just three; see
 note 2 below).
 
 <br clear="both" />
-<img src="./imgs/IMG_20170728_141320.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_141320.jpg" width=150 align="right"/>
 
 First, install a pair of bearings into the `base` piece, and then install
 the Printrbot Gear Head Extruder Gear Set into the bearings.
@@ -146,7 +148,7 @@ bearing (the bearing behind the hollow gear you just installed) is
 optional.  But if you're buying bearings, no reason to pinch pennies.
 
 <br clear="both" />
-<img src="./imgs/IMG_20170728_141721.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_141721.jpg" width=150 align="right"/>
 
 Now install the other pair of bearings into the `gearbox` piece, and
 bolt it to the base using (2) M3x20mm screws and (2) M3 nuts, sandwiching
@@ -155,7 +157,7 @@ the left-hand gear with the channel in the base; this will allow you to
 insert an allen wrench to tighten this gear onto the stepper shaft.
 
 <br clear="both" />
-<img src="./imgs/IMG_20170728_143040.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_143040.jpg" width=150 align="right"/>
 
 Attach the assembled gear box to the stepper.  Ensure the flat on the stepper
 shaft is aligned with the allen wrench channel.  Use (2) M3x10mm screws in
@@ -167,13 +169,13 @@ your stepper at this point and do a test extrusion w/o filament or hot end
 in order to check that the gears turn smoothly without slipping or grinding.
 
 <br clear="both" />
-<img src="./imgs/IMG_20170728_145756.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170728_145756.jpg" width=150 align="right"/>
 
 Now attach the extruder to the Y-axis of your printer using (2) M3x10mm
 screws through the bottom mounting holes into (2) M3 nuts in the slots
 provided.  (I'm using M3x12mm screws because I have an extra 3mm aluminum
 plate mounted to my Y-axis, to support a previous dual-extruder
-experiment [similar to this one](https://www.thingiverse.com/thing:398212).)
+experiment [similar to this one](https://www.thingiverse.com/thing:1539380).)
 
 Insert your hot end, and ensure it is snug and flush to the bottom surface
 fof the extruder as shown in the picture.  Any gap here will allow flexible
@@ -181,7 +183,7 @@ coil to kink and coil into the gap, eventually pushing your hot end off in
 the middle of a print.  (This is the voice of experience speaking.)
 
 <br clear="both" />
-<img src="./imgs/IMG_20170731_105441.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170731_105441.jpg" width=150 align="right"/>
 
 Install the `clamp` piece using two M3x25mm screws into the stepper.
 There is a ridge on the clamp piece that should fit into the ring at
@@ -199,7 +201,7 @@ gear head extruder.
 
 ### Step 4: Install bowden merge piece
 
-<img src="./imgs/IMG_20170730_191243.jpg" style="float:right" width=150 align="right"/>
+<img src="./imgs/IMG_20170730_191243.jpg" width=150 align="right"/>
 
 Print out [`bowden-block-4.stl`] and install (4)
 [Filastruder/E3D "Embedded for plastic" 1.75mm Bowden Couplers](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/bowden-couplings-all-types).  (You could also use the 2-way or 3-way merge piece if
