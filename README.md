@@ -193,11 +193,14 @@ the middle of a print.  (This is the voice of experience speaking.)
 <br clear="both" />
 <img src="./imgs/IMG_20170731_105441.jpg" width=150 align="right"/>
 
-Install the `clamp` piece using two M3x25mm screws into the stepper.
+Install the `clamp` piece using two M3x22mm screws into the stepper.
 There is a ridge on the clamp piece that should fit into the ring at
-the top of your hot end and keep it from slipping downward.  The `clamp`
-is secured to the Y-axis using another M3x10mm screw and M3 nut into its
-bottom.
+the top of your hot end and keep it from slipping downward.  Be
+careful of the screw length here: if the screw is too long it will
+bottom out in the blind mounting hole on the stepper and not bend the
+PLA clamp piece enough to properly grip the hotend.  (Again, the voice
+of experience.)  The `clamp` is secured to the Y-axis using another
+M3x10mm screw and M3 nut into its bottom.
 
 You can do a test print, feeding filament through the hole in
 the top of the remixed gear head extruder, to make sure everything
