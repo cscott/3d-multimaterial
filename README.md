@@ -73,7 +73,17 @@ part to [`spool-remix-lid2.stl`].  We are going to mount our
 bowden extruder on `LID1`, where the `PTFE_COUPLER` part would
 normally go.  Assemble the `LID_Bracket`, `BASE_Bracket`,
 and two `CLASP_BRACKET_v2_0` parts; I printed these in a contrasting
-color.  Use two `Glue_Joint` parts to assemble the lid and base halves.
+color.
+
+Use two `Glue_Joint` parts to assemble the lid and base halves;
+I recommend gluing both at once with the parts assembled into a complete
+circle so you can ensure that the gap between top and bottom is not
+too large as you glue them up.  Otherwise you tend to get top and bottom
+halves which are ~178° of arc instead of 180°, and when you finally put
+top and bottom together you get a pacman which won't close completely.
+You can scale up the Z axis of the SPANNERHANDS `Flex_Seal` parts and
+then trim them into a wedge to kludge around the problem if this happens.
+
 I found the stock spool bearing mounts a little too tight, so I printed
 the 50mm spool at 102% to fit my 52mm-core diameter spools with the right
 fit for the bearings.  I use the remix at
