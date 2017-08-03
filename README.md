@@ -128,7 +128,7 @@ version of [`bowden-block-4.stl`], the bowden merge piece.)
 <br clear="both" />
 <img src="./imgs/IMG_20170728_134043.jpg" width=150 align="right"/>
 
-You'll also need (4) [5x8x2.5 mm ball bearings] (or just three; see
+You'll also need (4) [5x8x2.5mm ball bearings] (or just three; see
 note 2 below).
 
 <br clear="both" />
@@ -146,6 +146,14 @@ It's possible the production gear set differs from the beta gears.
 Printrbot's original instructions stated that the rear stepper motor
 bearing (the bearing behind the hollow gear you just installed) is
 optional.  But if you're buying bearings, no reason to pinch pennies.
+
+**NOTE 3:**
+You may want to try [walter](https://www.thingiverse.com/walter/about)'s
+[remix of the gear head extruder](https://www.thingiverse.com/thing:1052966).
+It appears to use the same Printrbot gear set and bearings---but again,
+I'm not certain whether production gears differ from beta gears, and if so
+which walter used.  Some modifications will be necessary to adapt his
+remix to Printrbot bottom-mounting holes, but maybe you don't need those.
 
 <br clear="both" />
 <img src="./imgs/IMG_20170728_141721.jpg" width=150 align="right"/>

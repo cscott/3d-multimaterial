@@ -17,16 +17,36 @@ $fn=48;
 function bowden_coupler_off() = [7,0,11.3];
 function bowden_coupler_len() = 7;
 
-gearhead_remix(part=part);
-if (part=="all") {
-  translate(bowden_coupler_off()) rotate([0,90,0])
-    block(part="all", ntubes=3);
+if (part=="walter") {
+  walter_gearhead_remix();
+  if (false) { // visualization for checking bearing size only
+    translate([5,0,7.1])
+      walter_bearing();
+    translate([5,0,-4.5])
+      walter_bearing();
+  }
+} else {
+  gearhead_remix(part=part);
+  if (part=="all") {
+    translate(bowden_coupler_off()) rotate([0,90,0])
+      block(part="all", ntubes=3);
+  }
 }
 
 module gearhead() {
+  // From: https://www.youmagine.com/designs/printrbot-gear-head-extruder
   translate([0,4.76,-2.56])
   import("remix/Printrbot_Gear_Head_v0.02.1.stl", convexity=10);
 }
+
+module walter_gearhead() {
+  // From: https://www.thingiverse.com/thing:1052966
+  // Move filament path to y axis and gear centers to x axis
+  translate([-26.645,-21.325,-9.03])
+  import("remix/Gearhead_v6-1.STL", convexity=10);
+}
+
+// ** Remix of Printrbot Gear Head extruder design **
 
 module gearhead_bounds(part="base") {
   if (part=="base") {
@@ -110,6 +130,26 @@ module gearhead_remix(part="all") {
     }
   }
 }
+
+// ** Remix of Printrbot Gear Head extruder design **
+
+module walter_gearhead_remix() {
+  walter_gearhead();
+  // TO DO:
+  // 1. Add mount for bowden merge piece.
+  // 2. Add hotend mount, w/ set screw through groove to secure?
+  // 3. Add printrbot-standard mounting holes on bottom; trim bottom
+  // to correct height; fill in existing mounting holes
+  // 4. Add ring around bearing printed in flexible filament so that
+  // "tension adjustment" setscrew affects force not position?
+}
+
+module walter_bearing() {
+  ring(outer=8, inner=5, height=2.5); // 5x8x2.5mm, like on original kit
+}
+
+
+// ** Utilities **
 
 module ring(outer, inner, height, center=false) {
   epsilon=.1;
